@@ -2,7 +2,7 @@ kind: pipline
 type: docker
 name: drone-cloud-test-for-python3
 
-step:
+steps:
 - name: backend
   image: python:latest
   commands:
