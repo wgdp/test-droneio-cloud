@@ -10,8 +10,8 @@ steps:
   - pytest test_app.py
 
 steps:
-- name: discord notfication
-  iamge: appleboy/drone-discord
+- name: discord
+  image: appleboy/drone-discord
   settings:
     webhook_id: ${DISCORD_WEBHOOK_ID}
     webhook_token: ${DISCORD_WEBHOOK_TOKEN}
