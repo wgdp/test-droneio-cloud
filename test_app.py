@@ -1,4 +1,4 @@
 import app
 
 def test_app():
-    assert app.aaa() == 1
+    assert app.aaa() == 2
