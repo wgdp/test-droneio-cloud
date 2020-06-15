@@ -28,25 +28,16 @@ steps:
 
       結果:
     
+    
       {{#success build.status}}
       テストをすべて通過しました！よかったな…で…それが何の役に立つ！
+
+      https://imgur.com/goGskeC
       {{else}}
       おっと！テストを通過できなかったようです・・・まだまだ心眼が足らぬ。
+
+      https://imgur.com/OFuiEjW
       {{/success}} 
-
-
-
-    
-    #   message: >
-    #   {{repo.owner}} / {{repo.name}} : {{build.branch}}
-    #   コメント:
-    #   {{build.message}}
-
-    #   {{#success build.status}}
-    #   テストをすべて通過しました！よかったな…で…それが何の役に立つ！
-    #   {{else}}
-    #   おっと！テストを通過できなかったようです・・・まだまだ心眼が足らぬ。
-    #   {{/success}}
 
 
       
