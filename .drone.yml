@@ -8,21 +8,22 @@ steps:
     commands:
     - pip3 install -r requirements.txt
     - pytest test_app.py
+    - echo ${TEST}
 
-- name: discord notfication
-    iamge: appleboy/drone-discord
-    settings:
-        webhook_id: ${DISCORD_WEBHOOK_ID}
-        webhook_token: ${DISCORD_WEBHOOK_TOKEN}
-        message: >
-            {{repo.owner}}/{{repo.name}}: {{build.branch}}
-            コメント:
-            {{build.message}}
+# - name: discord notfication
+#     iamge: appleboy/drone-discord
+#     settings:
+#         webhook_id: ${DISCORD_WEBHOOK_ID}
+#         webhook_token: ${DISCORD_WEBHOOK_TOKEN}
+#         message: >
+#             {{repo.owner}}/{{repo.name}}: {{build.branch}}
+#             コメント:
+#             {{build.message}}
 
-            {{#success build.status}}
-            テストをすべて通過しました！おめでとう！
-            {{else}}
-            おっと！テストを通過できなかったようです・・・
-            {{/success}}
+#             {{#success build.status}}
+#             テストをすべて通過しました！おめでとう！
+#             {{else}}
+#             おっと！テストを通過できなかったようです・・・
+#             {{/success}}
 
       
