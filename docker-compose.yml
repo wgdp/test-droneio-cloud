@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  drone-server:
+    image: drone/drone:1
+    container_name: drone-server
+    hostname: drone-server
+    ports:
+      - 9999:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+    environment:
+      - DRONE_GITHUB_SERVER=https://github.com
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST} 
+      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID} 
+      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET} 
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET} 
+      - DRONE_SERVER_PROTO=https
+  drone-agent:
+    image: drone/drone-runner-docker:1
+    container_name: drone-agent
+    hostname: drone-agent
+    restart: always
+    depends_on:
+      - drone-server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_RPC_HOST=${DRONE_SERVER_HOST}
+      - DRONE_RPC_PROTO=http
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_RUNNER_CAPACITY=2
