@@ -24,8 +24,6 @@ steps:
 
       操作: {{build.event}}
 
-      drone cloud link: {{build.link}}
-
       結果:
     
     
