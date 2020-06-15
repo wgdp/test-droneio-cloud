@@ -1,0 +1,9 @@
+kind: pipline
+type: docker
+name: drone-cloud-test-for-python3
+
+step:
+- name: backend
+  image: python:latest
+  commands:
+  - pytest test_app.py
