@@ -6,4 +6,5 @@ step:
 - name: backend
   image: python:latest
   commands:
+  - pip3 install -r requirements.txt
   - pytest test_app.py
