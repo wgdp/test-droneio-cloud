@@ -20,9 +20,11 @@ steps:
     webhook_token: 
       from_secret: discord_webhook_token
     message: >
-      リポジトリ名: {{repo.name}}
+      ```リポジトリ名: {{repo.name}}
 
       操作: {{build.event}}
+
+      drone cloud link: {{build.link}}```
 
       結果:
     
