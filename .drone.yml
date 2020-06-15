@@ -3,17 +3,22 @@ type: docker
 name: drone-cloud-test-for-python3
 
 steps:
-- name: backend
-  image: python:latest
-  commands:
-  - pip3 install -r requirements.txt
-  - pytest test_app.py
-  
+# - name: backend
+#   image: python:latest
+#   commands:
+#   - pip3 install -r requirements.txt
+#   - pytest test_app.py
+
 - name: discord
   image: appleboy/drone-discord
+  when:
+    event: [ push, tag, pull_request ]
+    status: [ changed, failure, success ]
   settings:
-    webhook_id: ${DISCORD_WEBHOOK_ID}
-    webhook_token: ${DISCORD_WEBHOOK_TOKEN}
+    webhook_id: 
+      from_secret: ${DISCORD_WEBHOOK_ID}
+    webhook_token: 
+      from_secret: ${DISCORD_WEBHOOK_TOKEN}
     message: >
       {{repo.owner}}/{{repo.name}}: {{build.branch}}
       コメント:
