@@ -19,16 +19,20 @@ steps:
       from_secret: ${DISCORD_WEBHOOK_ID}
     webhook_token: 
       from_secret: ${DISCORD_WEBHOOK_TOKEN}
-    message: >
-      {{repo.owner}}/{{repo.name}}: {{build.branch}}
-      コメント:
-      {{build.message}}
+    message: aaaaaaaaaaaaaa
 
-      {{#success build.status}}
-      テストをすべて通過しました！おめでとう！
-      {{else}}
-      おっと！テストを通過できなかったようです・・・
-      {{/success}}
+
+
+    # message: >
+    #   {{repo.owner}}/{{repo.name}}: {{build.branch}}
+    #   コメント:
+    #   {{build.message}}
+
+    #   {{#success build.status}}
+    #   テストをすべて通過しました！おめでとう！
+    #   {{else}}
+    #   おっと！テストを通過できなかったようです・・・
+    #   {{/success}}
 
 
       
