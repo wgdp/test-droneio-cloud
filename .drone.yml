@@ -19,16 +19,18 @@ steps:
       from_secret: discord_webhook_id
     webhook_token: 
       from_secret: discord_webhook_token
-    message: >
-      {{repo.owner}} / {{repo.name}} : {{build.branch}}
-      コメント:
-      {{build.message}}
+    message: {{repo.owner}}
+    
+    #   message: >
+    #   {{repo.owner}} / {{repo.name}} : {{build.branch}}
+    #   コメント:
+    #   {{build.message}}
 
-      {{#success build.status}}
-      テストをすべて通過しました！よかったな…で…それが何の役に立つ！
-      {{else}}
-      おっと！テストを通過できなかったようです・・・まだまだ心眼が足らぬ。
-      {{/success}}
+    #   {{#success build.status}}
+    #   テストをすべて通過しました！よかったな…で…それが何の役に立つ！
+    #   {{else}}
+    #   おっと！テストを通過できなかったようです・・・まだまだ心眼が足らぬ。
+    #   {{/success}}
 
 
       
