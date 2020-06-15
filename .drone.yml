@@ -8,8 +8,6 @@ steps:
   commands:
   - pip3 install -r requirements.txt
   - pytest test_app.py
-
-steps:
 - name: discord
   image: appleboy/drone-discord
   settings:
@@ -25,5 +23,8 @@ steps:
       {{else}}
       おっと！テストを通過できなかったようです・・・
       {{/success}}
+
+# steps:
+
 
       
