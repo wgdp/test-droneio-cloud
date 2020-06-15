@@ -1,4 +1,4 @@
-kind: pipline
+kind: pipeline
 type: docker
 name: drone-cloud-test-for-python3
 
