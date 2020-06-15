@@ -21,9 +21,13 @@ steps:
       from_secret: discord_webhook_token
     message: >
       リポジトリ名: {{repo.name}}
-      操作: build.event
+
+      操作: {{build.event}}
+
       drone cloud link: {{build.link}}
+
       結果:
+    
       {{#success build.status}}
       テストをすべて通過しました！よかったな…で…それが何の役に立つ！
       {{else}}
